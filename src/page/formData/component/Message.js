@@ -19,7 +19,7 @@ function Message(props) {
     color = 'green';
   }
   return (
-    <div className='form-message'>
+    <div className="form-message">
       <span style={{ color }}>{showMessage}</span>
     </div>
   );

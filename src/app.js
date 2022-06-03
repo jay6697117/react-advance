@@ -158,8 +158,9 @@ function Meuns() {
   );
 }
 
+/* eslint-disable */
 /* TODO: 正查情况  */
-export default class Index extends React.Component {
+class Index extends React.Component {
   state = {
     Number: 1
   };
@@ -185,6 +186,8 @@ export default class Index extends React.Component {
     );
   }
 }
+
+export default Index;
 
 /* TODO: mini-router情况 */
 // export default function Root(){

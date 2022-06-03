@@ -26,7 +26,9 @@ function Circle({ position }) {
       ...getPostion(position)
     };
   }, []);
-  return <div className='circle' style={style} />;
+  return <div className="circle"
+      style={style}
+         />;
 }
 /* TODO: 源方案 */
 // class Index extends React.Component{
@@ -188,7 +190,9 @@ function Index() {
     return (
       <React.Fragment key={index}>
         {list.map((item, index) => (
-          <Circle key={index} position={position.current} />
+          <Circle key={index}
+              position={position.current}
+          />
         ))}
       </React.Fragment>
     );
@@ -196,7 +200,9 @@ function Index() {
   console.log(listRef.current.list);
   return (
     //@ts-ignore
-    <div className='bigData_index' ref={box}>
+    <div className="bigData_index"
+        ref={box}
+    >
       {listRef.current.list}
     </div>
   );

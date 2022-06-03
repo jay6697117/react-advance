@@ -25,16 +25,17 @@ function Form({ form, onFinish, onFinishFailed, initialValues, children }, ref) 
 
   return (
     <form
-      onReset={e => {
+        onReset={e => {
         e.preventDefault();
         e.stopPropagation();
         formInstance.resetFields(); /* 重置表单 */
       }}
-      onSubmit={e => {
+        onSubmit={e => {
         e.preventDefault();
         e.stopPropagation();
         formInstance.submit(); /* 提交表单 */
-      }}>
+      }}
+    >
       {RenderChildren}
     </form>
   );

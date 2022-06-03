@@ -280,17 +280,19 @@ export function debounce(fn, time) {
 
 function Item({ item }) {
   return (
-    <div className='goods_item'>
-      <img className='item_image' src={item.giftImage} />
-      <div className='item_content'>
-        <div className='goods_name'>{item.giftName}</div>
-        <div className='hold_price' />
-        <div className='new_price'>
-          <div className='new_price'>
-            <div className='one view'>¥ {item.price}</div>
+    <div className="goods_item">
+      <img className="item_image"
+          src={item.giftImage}
+      />
+      <div className="item_content">
+        <div className="goods_name">{item.giftName}</div>
+        <div className="hold_price" />
+        <div className="new_price">
+          <div className="new_price">
+            <div className="one view">¥ {item.price}</div>
           </div>
         </div>
-        <img className='go_share  go_text' />
+        <img className="go_share  go_text" />
       </div>
     </div>
   );
@@ -368,7 +370,9 @@ class ScrollView extends React.Component {
     const { list } = this.state;
     const { component } = this.props;
     return (
-      <div className='list_box' ref={node => (this.node = node)}>
+      <div className="list_box"
+          ref={node => (this.node = node)}
+      >
         <div>{list.map(item => React.createElement(component, { item, key: item.id }))}</div>
       </div>
     );
@@ -400,10 +404,10 @@ export default function() {
   }, []);
   return (
     <ScrollView
-      component={Item}
-      data={data} /* Item 渲染的单元组件 */
-      scroll={() => {}}
-      scrolltolower={handerScrolltolower}
+        component={Item}
+        data={data} /* Item 渲染的单元组件 */
+        scroll={() => {}}
+        scrolltolower={handerScrolltolower}
     />
   );
 }

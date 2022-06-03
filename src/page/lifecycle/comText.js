@@ -50,7 +50,9 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <img className='alien' src={alien} />
+        <img className="alien"
+            src={alien}
+        />
       </div>
     );
   }

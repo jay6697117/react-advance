@@ -12,20 +12,22 @@ class Modal extends React.PureComponent {
     /* 触发 onOk / onCancel 回调  */
     if (footer && React.isValidElement(footer)) return footer;
     return (
-      <div className='model_bottom'>
-        <div className='model_btn_box'>
+      <div className="model_bottom">
+        <div className="model_btn_box">
           <button
-            className='searchbtn'
-            onClick={e => {
+              className="searchbtn"
+              onClick={e => {
               onOk && onOk(e);
-            }}>
+            }}
+          >
             {okTest || '确定'}
           </button>
           <button
-            className='concellbtn'
-            onClick={e => {
+              className="concellbtn"
+              onClick={e => {
               onCancel && onCancel(e);
-            }}>
+            }}
+          >
             {cancelText || '取消'}
           </button>
         </div>
@@ -37,9 +39,9 @@ class Modal extends React.PureComponent {
   renderTop = () => {
     const { title, onClose } = this.props;
     return (
-      <div className='model_top'>
+      <div className="model_top">
         <p>{title}</p>
-        <span className='model_top_close' onClick={() => onClose && onClose()}>
+        <span className="model_top_close" onClick={() => onClose && onClose()}>
           x
         </span>
       </div>

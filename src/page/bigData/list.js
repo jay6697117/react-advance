@@ -39,12 +39,24 @@ function VirtualList() {
   const renderList = dataList.slice(start, end);
   console.log('渲染区间', position);
   return (
-    <div className='list_box' ref={box}>
-      <div className='scroll_box' onScroll={handleScroll} ref={scroll} style={{ height: height + 'px' }}>
-        <div className='scroll_hold' style={{ height: `${dataList.length * itemHeight}px` }} />
-        <div className='context' ref={context}>
+    <div className="list_box"
+        ref={box}
+    >
+      <div className="scroll_box"
+          onScroll={handleScroll}
+          ref={scroll}
+          style={{ height: height + 'px' }}
+      >
+        <div className="scroll_hold"
+            style={{ height: `${dataList.length * itemHeight}px` }}
+        />
+        <div className="context"
+            ref={context}
+        >
           {renderList.map((item, index) => (
-            <div className='list' key={index}>
+            <div className="list"
+                key={index}
+            >
               {' '}
               {item + ''} Item{' '}
             </div>

@@ -38,8 +38,12 @@ export default function Index() {
   const handleClick3 = () => console.log(3);
   const handleClick4 = () => console.log(4);
   return (
-    <div onClick={handleClick3} onClickCapture={handleClick4}>
-      <button onClick={handleClick1} onClickCapture={handleClick2}></button>
+    <div onClick={handleClick3}
+        onClickCapture={handleClick4}
+    >
+      <button onClick={handleClick1}
+          onClickCapture={handleClick2}
+      ></button>
     </div>
   );
 }

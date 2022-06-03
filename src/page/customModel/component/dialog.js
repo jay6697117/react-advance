@@ -18,15 +18,15 @@ export default function Dialog(props) {
     /* 把元素渲染到组件之外的 document.body 上  */
     return ReactDOM.createPortal(
       <div style={{ display: modelShow ? 'block' : 'none' }}>
-        <div className='model_container' style={{ opacity: modelShowAync ? 1 : 0 }}>
-          <div className='model_wrap'>
+        <div className="model_container" style={{ opacity: modelShowAync ? 1 : 0 }}>
+          <div className="model_wrap">
             <div style={{ width: width + 'px' }}> {props.children} </div>
           </div>
         </div>
         <div
-          className='model_container mast'
-          onClick={() => onClose && onClose()}
-          style={{ opacity: modelShowAync ? 0.6 : 0 }}
+            className="model_container mast"
+            onClick={() => onClose && onClose()}
+            style={{ opacity: modelShowAync ? 0.6 : 0 }}
         />
       </div>,
       document.body

@@ -66,9 +66,15 @@ function FormItem({
     renderChildren = children;
   }
   return (
-    <Label height={height} label={label} labelWidth={labelWidth} required={required}>
+    <Label height={height}
+        label={label}
+        labelWidth={labelWidth}
+        required={required}
+    >
       {renderChildren}
-      <Message name={name} {...dispatch({ type: 'getFieldModel' }, name)} />
+      <Message name={name}
+          {...dispatch({ type: 'getFieldModel' }, name)}
+      />
     </Label>
   );
 }

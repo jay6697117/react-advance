@@ -170,7 +170,10 @@ class Input extends React.Component {
     return (
       <div>
         <label style={{ color }}>{label}</label>
-        <input className='input' placeholder={placeholder} style={{ border }} />
+        <input className="input"
+            placeholder={placeholder}
+            style={{ border }}
+        />
       </div>
     );
   }
@@ -183,7 +186,9 @@ const Box = memo(function BoxIndex(props) {
       {themeContextValue => {
         const { border, color } = themeContextValue;
         return (
-          <div className='context_box' style={{ border, color }}>
+          <div className="context_box"
+              style={{ border, color }}
+          >
             {props.children}
           </div>
         );
@@ -196,9 +201,17 @@ function Checkbox(props) {
   const { label, name, onChange } = props;
   const { type, color } = React.useContext(ThemeContext);
   return (
-    <div className='checkbox' onClick={onChange}>
-      <label htmlFor='name'> {label} </label>
-      <input checked={type === name} id={name} name={name} style={{ color }} type='checkbox' value={type} />
+    <div className="checkbox"
+        onClick={onChange}
+    >
+      <label htmlFor="name"> {label} </label>
+      <input checked={type === name}
+          id={name}
+          name={name}
+          style={{ color }}
+          type="checkbox"
+          value={type}
+      />
     </div>
   );
 }
@@ -208,20 +221,36 @@ class App extends React.PureComponent {
   render() {
     const { border, setTheme, color, background } = this.context;
     return (
-      <div className='context_app' style={{ border, color }}>
-        <div className='context_change_theme'>
+      <div className="context_app"
+          style={{ border, color }}
+      >
+        <div className="context_change_theme">
           <span> 选择主题： </span>
-          <Checkbox label='light' name='light' onChange={() => setTheme(theme.light)} />
-          <Checkbox label='dark' name='dark' onChange={() => setTheme(theme.dark)} />
+          <Checkbox label="light"
+              name="light"
+              onChange={() => setTheme(theme.light)}
+          />
+          <Checkbox label="dark"
+              name="dark"
+              onChange={() => setTheme(theme.dark)}
+          />
         </div>
-        <div className='box_content'>
+        <div className="box_content">
           <Box>
-            <Input label='姓名：' placeholder='请输入姓名' />
-            <Input label='age：' placeholder='请输入年龄' />
-            <button className='searchbtn' style={{ background }}>
+            <Input label="姓名："
+                placeholder="请输入姓名"
+            />
+            <Input label="age："
+                placeholder="请输入年龄"
+            />
+            <button className="searchbtn"
+                style={{ background }}
+            >
               确定
             </button>
-            <button className='concellbtn' style={{ color }}>
+            <button className="concellbtn"
+                style={{ color }}
+            >
               取消
             </button>
           </Box>
@@ -229,12 +258,18 @@ class App extends React.PureComponent {
             <HomeOutlined twoToneColor={color} />
             <SettingFilled twoToneColor={color} />
             <SmileOutlined twoToneColor={color} />
-            <SyncOutlined spin twoToneColor={color} />
-            <SmileOutlined rotate={180} twoToneColor={color} />
+            <SyncOutlined spin
+                twoToneColor={color}
+            />
+            <SmileOutlined rotate={180}
+                twoToneColor={color}
+            />
             <LoadingOutlined twoToneColor={color} />
           </Box>
           <Box>
-            <div className='person_des' style={{ color: '#fff', background }}>
+            <div className="person_des"
+                style={{ color: '#fff', background }}
+            >
               I am alien <br />
               let us learn React!
             </div>

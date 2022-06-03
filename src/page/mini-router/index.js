@@ -32,9 +32,10 @@ function Menus() {
     <div>
       {menusList.map(item => (
         <span
-          className={`nav ${item.path === path ? 'active' : ''}`}
-          key={item.path}
-          onClick={() => RouterGo(item.path)}>
+            className={`nav ${item.path === path ? 'active' : ''}`}
+            key={item.path}
+            onClick={() => RouterGo(item.path)}
+        >
           {item.name}
         </span>
       ))}
@@ -58,9 +59,15 @@ function Index() {
       <Top />
       <Menus />
       <Switch>
-        <Route component={Home} path='/home'></Route>
-        <Route component={Detail} path='/detail' />
-        <Route path='/list' render={props => <List {...props} />} />
+        <Route component={Home}
+            path="/home"
+        ></Route>
+        <Route component={Detail}
+            path="/detail"
+        />
+        <Route path="/list"
+            render={props => <List {...props} />}
+        />
       </Switch>
 
       <div>--------bottom------</div>

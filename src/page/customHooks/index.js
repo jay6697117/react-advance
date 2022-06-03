@@ -114,9 +114,10 @@ function Home() {
       </div>
       {/* 外部点击 */}
       <button
-        onClick={() => {
+          onClick={() => {
           console.log(reportMessage);
-        }}>
+        }}
+      >
         {' '}
         外部点击{' '}
       </button>

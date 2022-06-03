@@ -38,7 +38,9 @@ import Root from './root';
 import Communi from './communication';
 export default function Index() {
   return (
-    <Provider Communi={Communi} Root={Root}>
+    <Provider Communi={Communi}
+        Root={Root}
+    >
       <ComponentA />
       <ComponentB />
     </Provider>
@@ -55,22 +57,26 @@ class ComponentA extends React.Component {
     const { CompAsay } = this.state;
     const { mesB } = this.props.Communi;
     return (
-      <div className='box pt50'>
+      <div className="box pt50">
         <p>我是组件A</p>
         <div> B组件对我说：{mesB} </div>
         我对B组件说：
-        <input onChange={e => this.setState({ CompAsay: e.target.value })} placeholder='CompAsay' />
+        <input onChange={e => this.setState({ CompAsay: e.target.value })}
+            placeholder="CompAsay"
+        />
         <button onClick={() => this.props.Communi.setMesA(CompAsay)}>确定</button>
         <button
-          onClick={() => {
+            onClick={() => {
             this.props.Communi.setMes('alien');
-          }}>
+          }}
+        >
           改变名称
         </button>
         <button
-          onClick={() => {
+            onClick={() => {
             this.props.Communi.setInfo({ name: 'xxx' });
-          }}>
+          }}
+        >
           改变名称
         </button>
       </div>
@@ -92,12 +98,14 @@ class ComponentB extends React.Component {
     const { compBsay } = this.state;
     const { mesA, object } = this.props.Communi;
     return (
-      <div className='box'>
+      <div className="box">
         <p> 名称：{object.name} </p>
         <p>我是组件B</p>
         <div> A组件对我说：{mesA} </div>
         我对A组件说：
-        <input onChange={e => this.setState({ compBsay: e.target.value })} placeholder='CompAsay' />
+        <input onChange={e => this.setState({ compBsay: e.target.value })}
+            placeholder="CompAsay"
+        />
         <button onClick={() => (this.props.Communi.mesB = compBsay)}>确定</button>
       </div>
     );

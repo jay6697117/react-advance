@@ -74,11 +74,13 @@ const Store = createStore(rootReducer, { number: 1, info: { name: null } }, root
 function ComponentA({ toCompB, info }) {
   const [CompAsay, setCompAsay] = useState('');
   return (
-    <div className='box'>
+    <div className="box">
       <p>我是组件A</p>
       <div> B组件对我说：{info} </div>
       我对B组件说：
-      <input onChange={e => setCompAsay(e.target.value)} placeholder='CompAsay' />
+      <input onChange={e => setCompAsay(e.target.value)}
+          placeholder="CompAsay"
+      />
       <button onClick={() => toCompB(CompAsay)}>确定</button>
     </div>
   );
@@ -99,11 +101,13 @@ class ComponentB extends React.Component {
   };
   render() {
     return (
-      <div className='box'>
+      <div className="box">
         <p>我是组件B</p>
         <div> A组件对我说：{this.props.compAsay.compAsay} </div>
         我对A组件说：
-        <input onChange={e => this.setState({ compBsay: e.target.value })} placeholder='CompBsay' />
+        <input onChange={e => this.setState({ compBsay: e.target.value })}
+            placeholder="CompBsay"
+        />
         <button onClick={this.handleToA}>确定</button>
       </div>
     );

@@ -38,10 +38,11 @@ export default class Index extends React.Component {
     return (
       <div>
         <PropsComponent
-          Component={ChidrenComponent}
-          mes={this.state.mes}
-          renderName={() => <div> my name is alien </div>}
-          say={this.say}>
+            Component={ChidrenComponent}
+            mes={this.state.mes}
+            renderName={() => <div> my name is alien </div>}
+            say={this.say}
+        >
           {() => <div>hello,world</div>}
           <ChidrenComponent />
         </PropsComponent>

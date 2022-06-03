@@ -22,11 +22,12 @@ export default function Router(props) {
   }, []);
   return (
     <RouterContext.Provider
-      value={{
+        value={{
         location,
         history,
         match: { path: '/', url: '/', params: {}, isExact: location.pathname === '/' }
-      }}>
+      }}
+    >
       {props.children}
     </RouterContext.Provider>
   );

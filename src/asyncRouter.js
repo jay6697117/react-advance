@@ -30,12 +30,6 @@ export default function AsyncRouter(loadRouter) {
     state = {
       Component: null
     };
-    dispatchRouterQueue(type) {
-      const { history } = this.props;
-      routerObserveQueue.forEach(item => {
-        if (item.type === type) item.callback(history);
-      });
-    }
     componentDidMount() {
       if (this.state.Component) return;
       loadRouter()
@@ -50,6 +44,12 @@ export default function AsyncRouter(loadRouter) {
             }
           )
         );
+    }
+    dispatchRouterQueue(type) {
+      const { history } = this.props;
+      routerObserveQueue.forEach(item => {
+        if (item.type === type) item.callback(history);
+      });
     }
     render() {
       const { Component } = this.state;

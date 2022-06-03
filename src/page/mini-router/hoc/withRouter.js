@@ -7,7 +7,10 @@ export default function withRouter(Component) {
   const WrapComponent = props => {
     const { wrappedComponentRef, ...remainingProps } = props;
     const context = useContext(RouterContext);
-    return <Component {...remainingProps} ref={wrappedComponentRef} {...context} />;
+    return <Component {...remainingProps}
+        ref={wrappedComponentRef}
+        {...context}
+           />;
   };
   return hoistStatics(WrapComponent, Component);
 }
