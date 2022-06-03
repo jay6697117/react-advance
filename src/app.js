@@ -143,14 +143,15 @@ const menusList = [
 function Meuns() {
   const history = useHistory();
   return (
-    <div className='theStyle'>
+    <div className="theStyle">
       {menusList.map(item => (
         <span
-          className='routerLink'
-          key={item.path}
-          onClick={() => {
+            className="routerLink"
+            key={item.path}
+            onClick={() => {
             history.push(item.path);
-          }}>
+          }}
+        >
           {item.name}
         </span>
       ))}
