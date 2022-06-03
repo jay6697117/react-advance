@@ -1393,6 +1393,11 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+amdefine@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmmirror.com/amdefine/-/amdefine-0.0.2.tgz#e857fddd8f9f35706d79ea749769260eec8aaf64"
+  integrity sha512-+VLhi9uZIZu3/+lXLHm8lDcav3gHrtqz4UXJ2soVd0Abr7v8E5cnv9nzm81rK43QvNSYdDewxh2dETWbOOUhrg==
+
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.npmmirror.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
@@ -2400,6 +2405,11 @@ commander@^2.20.0:
   version "2.20.3"
   resolved "https://registry.npmmirror.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
+commander@~0.6.0:
+  version "0.6.1"
+  resolved "https://registry.npmmirror.com/commander/-/commander-0.6.1.tgz#fa68a14f6a945d54dbbe50d8cdb3320e9e3b1a06"
+  integrity sha512-0fLycpl1UMTGX257hRsu/arL/cUbcvQM4zMKwvLvzXtfdezIV4yotPS2dYtknF+NmEfWSoCEF6+hj9XLm/6hEw==
 
 commander@~2.19.0:
   version "2.19.0"
@@ -7010,6 +7020,34 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
+rux-react-webpack-plugin@^1.0.3:
+  version "1.0.4"
+  resolved "https://registry.npmmirror.com/rux-react-webpack-plugin/-/rux-react-webpack-plugin-1.0.4.tgz#031f6fbb3fc957989acc9f21e2b9f07dc59d8d6e"
+  integrity sha512-Yfe+rEx5z6IdodvuKWgsenN/6FeaL6lnNtjecqKH214vaH6ErNsaGNT07O2055wRh5d9gHIMgEs9qXElMDuIGg==
+  dependencies:
+    "@types/webpack-env" "^1.15.1"
+    autoprefixer "^9.7.5"
+    clean-webpack-plugin "^3.0.0"
+    happypack "^5.0.1"
+    html-webpack-plugin "^3.2.0"
+    mini-css-extract-plugin "^0.9.0"
+    single-line-log "^1.1.2"
+    terser-webpack-plugin "^2.3.5"
+    webpack "4.43.0"
+    webpack-cli "3.2.3"
+    webpack-dev-server "3.11.0"
+    webpack-merge "^4.2.1"
+
+ruxjs@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmmirror.com/ruxjs/-/ruxjs-0.0.2.tgz#1a9dc422f87889ff0e7e0d9ce22518e726a701d0"
+  integrity sha512-Dmd8ii9hbUrXFGhyjkU9YJfdUvTUzZ+5YyQhETe6Y8LB3F9ZLnyZ+ZWchxykPYwYTF2Azo3K0L+eaux3rTZdnA==
+  dependencies:
+    invariant "^2.2.4"
+    react-redux "^7.2.0"
+    redux "^4.0.5"
+    warn "^1.0.1"
+
 rxjs@^6.6.0:
   version "6.6.7"
   resolved "https://registry.npmmirror.com/rxjs/-/rxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
@@ -8190,6 +8228,14 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.npmmirror.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
+
+warn@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmmirror.com/warn/-/warn-1.0.1.tgz#f844f29e7f0cbed2f9cd084ef2bbc300fc5e9fe0"
+  integrity sha512-4nDAG4Ak1Dw4R5EacMV80mEatIQkcst0ZpPg2eo3cgFJ5xytdBHi3f6IDCuYuWC0dbyhdQ+SuxFccxKwucND6w==
+  dependencies:
+    amdefine "0.0.2"
+    commander "~0.6.0"
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
