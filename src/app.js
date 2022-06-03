@@ -178,7 +178,7 @@ class Index extends React.Component {
         <div>
           <Router>
             <Meuns />
-            <div style={{ paddingTop: '100px' }}>
+            <div style={{ padding: '100px 15px 0' }}>
               <KeepaliveRouterSwitch withoutRoute>{renderRoutes(menusList)}</KeepaliveRouterSwitch>
             </div>
           </Router>
