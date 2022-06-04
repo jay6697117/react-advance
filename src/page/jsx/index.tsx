@@ -11,7 +11,7 @@ class Index extends React.Component {
   /* 控制渲染 */
   controlRender = () => {
     const reactElement = (
-      <div className="container" style={{ marginTop: '100px' }}>
+      <div className="container" style={{ marginTop: '20px' }}>
         {/* element 元素类型 */}
         <div>hello,world</div>
         {/* fragment 类型 */}

@@ -146,12 +146,11 @@ function Meuns() {
     <div className="theStyle">
       {menusList.map(item => (
         <span
-            className="routerLink"
-            key={item.path}
-            onClick={() => {
+          className="routerLink"
+          key={item.path}
+          onClick={() => {
             history.push(item.path);
-          }}
-        >
+          }}>
           {item.name}
         </span>
       ))}
@@ -178,7 +177,7 @@ class Index extends React.Component {
         <div>
           <Router>
             <Meuns />
-            <div style={{ padding: '100px 15px 0' }}>
+            <div style={{ padding: '20px 15px' }}>
               <KeepaliveRouterSwitch withoutRoute>{renderRoutes(menusList)}</KeepaliveRouterSwitch>
             </div>
           </Router>
