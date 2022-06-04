@@ -102,8 +102,8 @@ const Appconfig = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         include: path.resolve(__dirname, '../src'),
-        use: ['happypack/loader?id=babel']
-        // loader: 'babel-loader'
+        // use: ['happypack/loader?id=babel']
+        loader: 'babel-loader'
       }
     ]
   },
@@ -122,12 +122,12 @@ const Appconfig = {
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css'
-    }),
-    /* 多线程编译 */
-    new HappyPack({
-      id: 'babel',
-      loaders: ['babel-loader?cacheDirectory']
     })
+    /* 多线程编译 */
+    // new HappyPack({
+    //   id: 'babel',
+    //   loaders: ['babel-loader?cacheDirectory']
+    // })
   ]
 };
 module.exports = env => {
