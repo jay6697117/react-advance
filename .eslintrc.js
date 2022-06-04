@@ -30,7 +30,7 @@ module.exports = {
     'no-trailing-spaces': 1, //一行结束后面有空格就发出警告
     'eol-last': 0, //文件以单一的换行符结束
     // 'no-unused-vars': [2, { vars: 'all', args: 'after-used' }], //不能有声明后未被使用的变量或参数
-    'no-unused-vars': 1,
+    'no-unused-vars': 0,
     'no-underscore-dangle': 0, //标识符不能以_开头或结尾
     'no-alert': 2, //禁止使用alert confirm prompt
     'no-lone-blocks': 0, //禁止不必要的嵌套块
@@ -71,7 +71,8 @@ module.exports = {
     'react/no-did-mount-set-state': 0, //防止在componentDidMount中使用setState
     'react/no-did-update-set-state': 1, //防止在componentDidUpdate中使用setState
     'react/no-direct-mutation-state': 2, //防止this.state的直接变异
-    'react/no-multi-comp': 2, //防止每个文件有多个组件定义
+    // 'react/no-multi-comp': 2, //防止每个文件有多个组件定义
+    'react/no-multi-comp': 0, //防止每个文件有多个组件定义
     'react/no-set-state': 0, //防止使用setState
     'react/no-unknown-property': 2, //防止使用未知的DOM属性
     'react/prefer-es6-class': 2, //为React组件强制执行ES5或ES6类
@@ -85,7 +86,7 @@ module.exports = {
     'react/jsx-equals-spacing': 2, //在JSX属性中强制或禁止等号周围的空格
     'no-unreachable': 1, //不能有无法执行的代码
     // 'comma-dangle': 2, //对象字面量项尾不能有逗号
-    'comma-dangle': 1, //对象字面量项尾不能有逗号
+    'comma-dangle': 0, //对象字面量项尾不能有逗号
     'no-mixed-spaces-and-tabs': 0, //禁止混用tab和空格
     'prefer-arrow-callback': 0, //比较喜欢箭头回调
     'arrow-parens': 0, //箭头函数用小括号括起来
