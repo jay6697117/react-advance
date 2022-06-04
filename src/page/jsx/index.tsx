@@ -6,7 +6,9 @@ const TextComponent = () => <div> hello , i am function component </div>;
 /* TODO: ② */
 class Index extends React.Component {
   status = false; /* 状态 */
-  renderFoot = () => <div> i am foot 666</div>;
+  renderFoot = () => {
+    return <div> i am foot 666</div>;
+  };
   /* 控制渲染 */
   controlRender = () => {
     const reactElement = (
@@ -20,9 +22,9 @@ class Index extends React.Component {
         {/* text 文本类型 */}
         my name is alien
         {/* 数组节点类型 */}
-        {toLearn.map(item => (
-          <div key={item}>let us learn {item} </div>
-        ))}
+        {toLearn.map(item => {
+          return <div key={item}>let us learn {item} </div>;
+        })}
         {/* 组件类型 */}
         <TextComponent />
         {/* 三元运算 */}
@@ -33,6 +35,8 @@ class Index extends React.Component {
       </div>
     );
     console.log(reactElement);
+    return reactElement;
+
     const { children } = reactElement.props;
     /* 第一步 ： 扁平化 children  */
     const flatChildren = React.Children.toArray(children);
@@ -48,7 +52,7 @@ class Index extends React.Component {
 
     /* 第四步：修改容器节点 */
     const newReactElement = React.cloneElement(reactElement, {}, ...newChildren);
-    return newReactElement;
+    // return newReactElement;
   };
   render() {
     return this.controlRender();
