@@ -25,5 +25,5 @@ class Communi {
   }
 }
 const index = new Communi();
-console.log(index);
+// console.log(index);
 export default index;

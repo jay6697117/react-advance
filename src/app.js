@@ -29,7 +29,7 @@ import SourceCode from './page/sourceCode/index';
 import BeginWork from './page/beginWork/index';
 import './app.scss';
 
-console.log(require.context, 'require.context()');
+console.log( 'require.context():',require.context);
 const menusList = [
   {
     name: '2_认识Jsx',

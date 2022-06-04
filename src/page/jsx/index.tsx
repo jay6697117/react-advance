@@ -1,7 +1,6 @@
 import React from 'react';
 
 const toLearn = ['react', 'vue', 'webpack', 'nodejs'];
-
 const TextComponent = () => <div> hello , i am function component </div>;
 
 /* TODO: ② */

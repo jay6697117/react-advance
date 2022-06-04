@@ -16,6 +16,6 @@ class Root {
 
 const Index = new Root();
 
-console.log(Index);
+// console.log(Index);
 
 export default Index;
