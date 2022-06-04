@@ -10,9 +10,9 @@ class Index extends React.Component {
     return <div> i am foot 666</div>;
   };
   /* 控制渲染 */
-  controlRender = () => {
+  controlRender = (renderType = 0) => {
     const reactElement = (
-      <div className="container" style={{ marginTop: '20px' }}>
+      <div className="container" style={{ margin: '20px 0' }}>
         {/* element 元素类型 */}
         <div>hello,world</div>
         {/* fragment 类型 */}
@@ -34,28 +34,38 @@ class Index extends React.Component {
         <button onClick={() => console.log(this.render())}>打印render后的内容</button>
       </div>
     );
-    console.log(reactElement);
-    return reactElement;
+    console.log('reactElement 0:', reactElement);
 
     const { children } = reactElement.props;
+    console.log('children 0:', children);
     /* 第一步 ： 扁平化 children  */
     const flatChildren = React.Children.toArray(children);
-    console.log(flatChildren);
+    console.log('flatChildren 0:', flatChildren);
     /* 第二步 ： 除去文本节点 */
     const newChildren: any = [];
     React.Children.forEach(flatChildren, item => {
       if (React.isValidElement(item)) newChildren.push(item);
     });
+    console.log('newChildren 0:', newChildren);
     /* 第三步，插入新的节点 */
     const lastChildren = React.createElement('div', { className: 'last' }, 'say goodbye');
     newChildren.push(lastChildren);
+    console.log('newChildren 1:', newChildren);
 
     /* 第四步：修改容器节点 */
     const newReactElement = React.cloneElement(reactElement, {}, ...newChildren);
-    // return newReactElement;
+    console.log('newReactElement 0:', newReactElement);
+
+    return renderType ? newReactElement : reactElement;
   };
   render() {
-    return this.controlRender();
+    return (
+      <div className="container-wrap">
+        {this.controlRender(0)}
+        <hr />
+        {this.controlRender(1)}
+      </div>
+    );
   }
 }
 
