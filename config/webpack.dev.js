@@ -14,9 +14,9 @@ const devConfig = {
     inline: true,
     proxy: {
       /* 代理服务器 */
-      //   "/api": {
-      //     target: "http://localhost:9092"
-      //   }
+      // '/api': {
+      //   target: 'http://localhost:9092'
+      // }
     }
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]

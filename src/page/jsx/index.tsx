@@ -1,13 +1,13 @@
 import React from 'react';
 
 const toLearn = ['react', 'vue', 'webpack', 'nodejs'];
-const TextComponent = () => <div> hello , i am function component </div>;
+const TextComponent = () => <div> hello , i am function component 888 </div>;
 
 /* TODO: ② */
 class Index extends React.Component {
-  status = false; /* 状态 */
+  status = true; /* 状态 */
   renderFoot = () => {
-    return <div> i am foot 666</div>;
+    return <div> i am renderFoot 666</div>;
   };
   /* 控制渲染 */
   controlRender = (renderType = 0) => {
@@ -36,27 +36,32 @@ class Index extends React.Component {
     );
     console.log('reactElement 0:', reactElement);
 
-    const { children } = reactElement.props;
-    console.log('children 0:', children);
-    /* 第一步 ： 扁平化 children  */
-    const flatChildren = React.Children.toArray(children);
-    console.log('flatChildren 0:', flatChildren);
-    /* 第二步 ： 除去文本节点 */
-    const newChildren: any = [];
-    React.Children.forEach(flatChildren, item => {
-      if (React.isValidElement(item)) newChildren.push(item);
-    });
-    console.log('newChildren 0:', newChildren);
-    /* 第三步，插入新的节点 */
-    const lastChildren = React.createElement('div', { className: 'last' }, 'say goodbye');
-    newChildren.push(lastChildren);
-    console.log('newChildren 1:', newChildren);
+    if (renderType) {
+      const { children } = reactElement.props;
+      console.log('children 1:', children);
+      /* 第一步 ： 扁平化 children  */
+      const flatChildren = React.Children.toArray(children);
+      console.log('flatChildren 2:', flatChildren);
+      /* 第二步 ： 除去文本节点 */
+      const newChildren: any = [];
+      React.Children.forEach(flatChildren, item => {
+        if (React.isValidElement(item)) newChildren.push(item);
+      });
+      console.log('newChildren 3:', newChildren);
+      /* 第三步，插入新的节点 */
+      const lastChildren = React.createElement('div', { className: 'last' }, 'say goodbye 999');
+      newChildren.push(lastChildren);
+      console.log('newChildren 4:', newChildren);
 
-    /* 第四步：修改容器节点 */
-    const newReactElement = React.cloneElement(reactElement, {}, ...newChildren);
-    console.log('newReactElement 0:', newReactElement);
-
-    return renderType ? newReactElement : reactElement;
+      /* 第四步：修改容器节点 */
+      const newReactElement = React.cloneElement(reactElement, {}, ...newChildren);
+      console.log('newReactElement 5:', newReactElement);
+      console.log('--------------------------1------------------------')
+      return newReactElement;
+    } else {
+      console.log('--------------------------0------------------------')
+      return reactElement;
+    }
   };
   render() {
     return (

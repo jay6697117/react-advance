@@ -130,6 +130,7 @@ const Appconfig = {
     })
   ]
 };
+
 module.exports = env => {
   if (env && env.production) {
     return merge(Appconfig, proConfig);
