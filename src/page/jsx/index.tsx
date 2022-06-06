@@ -5,7 +5,7 @@ const TextComponent = () => <div> hello , i am function component 888 </div>;
 
 /* TODO: ② */
 class Index extends React.Component {
-  status = true; /* 状态 */
+  status = false; /* 状态 */
   renderFoot = () => {
     return <div> i am renderFoot 666</div>;
   };
