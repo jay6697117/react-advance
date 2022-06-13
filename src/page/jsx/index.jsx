@@ -1,8 +1,20 @@
 import React from 'react';
 import './index.scss';
+import Code from '../../../demo/code';
+console.log('Code:', Code)
 
 const toLearn = ['react', 'vue', 'webpack', 'nodejs'];
 const TextComponent = () => <div> hello , i am function component 888 </div>;
+
+function TestComponent() {
+  return (
+    <div>
+      <h1>hello,world</h1>
+      <span>let us learn React</span>
+    </div>
+  );
+}
+console.log('TestComponent:', TestComponent);
 
 /* TODO: ② */
 class Index extends React.Component {
@@ -44,7 +56,8 @@ class Index extends React.Component {
       const flatChildren = React.Children.toArray(children);
       console.log('flatChildren 2:', flatChildren);
       /* 第二步 ： 除去文本节点 */
-      const newChildren: any = [];
+      // const newChildren: any = [];
+      const newChildren = [];
       React.Children.forEach(flatChildren, item => {
         if (React.isValidElement(item)) newChildren.push(item);
       });
@@ -78,6 +91,10 @@ class Index extends React.Component {
         {this.controlRender(0)}
         <hr />
         {this.controlRender(1)}
+        <hr />
+        <TestComponent/>
+        <hr />
+        <Code/>
       </div>
     );
   }
