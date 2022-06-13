@@ -6,7 +6,8 @@
   "scripts": {
     "test": "webpack  --config ./config/webpack.base.js",
     "start": "webpack-dev-server --config ./config/webpack.base.js",
-    "build": "webpack --env.production --config ./config/webpack.base.js",
+    "build:dev": "rm -rf dist/* && webpack --env.production --mode=development --config ./config/webpack.base.js",
+    "build:prod": "rm -rf dist/* && webpack --env.production --mode=production --config ./config/webpack.base.js",
     "format": "prettier --write './**/*.{css,scss,js,ts,jsx,tsx,vue}'",
     "lint": "eslint --fix --ext .js,.ts,.jsx,.tsx,.vue ./"
   },

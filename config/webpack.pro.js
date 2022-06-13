@@ -1,7 +1,8 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const proConfig = {
   devtool: 'cheap-module-source-map',
-  mode: 'production',
+  // mode: 'development',
+  // mode: 'production',
   optimization: {
     minimizer: [
       new TerserPlugin({
