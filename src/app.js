@@ -37,14 +37,14 @@ const menusList = [
     component: JSX
   },
   {
-    name: '3_玄学state',
-    path: '/state',
-    component: State
-  },
-  {
-    name: '4_起源components',
+    name: '3_起源components',
     path: '/component',
     component: Components
+  },
+  {
+    name: '4_玄学state',
+    path: '/state',
+    component: State
   },
   {
     name: '5_爱恨props',
