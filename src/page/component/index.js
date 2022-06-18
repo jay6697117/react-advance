@@ -79,26 +79,43 @@ import './index.scss';
 // }
 
 /* 类 */
-// class textClass {
-//     sayHello=()=>console.log('hello, my name is alien')
+// class TextClass {
+//   sayHello = () => console.log('hello, my name is alien 111');
 // }
-// /* 类组件 */
-// class Index extends React.Component{
-//     state={ message:`hello ，world!` }
-//     sayHello=()=> this.setState({ message : 'hello, my name is alien' })
-//     render(){
-//         return <div style={{ marginTop:'50px' }} onClick={ this.sayHello } > { this.state.message }  </div>
-//     }
+// const textClass = new TextClass();
+// console.log('textClass:', textClass);
+
+/* 类组件 */
+// class Index extends React.Component {
+//   state = { message: 'hello ，world!' };
+//   sayHello = () => {
+//     console.log('this', this);
+//     textClass.sayHello();
+//     this.setState({ message: 'hello, my name is alien 222' });
+//   };
+//   render() {
+//     return (
+//       <div onClick={this.sayHello} style={{ marginTop: '20px' }}>
+//         {this.state.message}
+//       </div>
+//     );
+//   }
 // }
-// /* 函数 */
-// function textFun (){
-//     return 'hello, world'
-// }
-// /* 函数组件 */
-// function FunComponent(){
-//     const [ message , setMessage ] = useState('hello,world')
-//     return <div onClick={ ()=> setMessage('hello, my name is alien')  } >{ message }</div>
-// }
+
+/* 函数 */
+function textFun() {
+  return 'hello, world';
+}
+/* 函数组件 */
+function FunComponent() {
+  // const [state, setState] = useState(initialState);
+  console.log('hooks:', useState('hello,world'));
+  const [message, setMessage] = useState('hello,world');
+  console.log('message:', message);
+  console.log('setMessage:', setMessage);
+  return <div onClick={() => setMessage('hello, my name is alien')}>{message}</div>;
+}
+export default FunComponent;
 
 // class Index extends React.Component{
 //     constructor(...arg){
@@ -234,7 +251,7 @@ import './index.scss';
 // }
 
 /* flushSync */
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 // class Index extends React.Component{
 //     state={ number:0 }
 //     handerClick=()=>{
@@ -266,15 +283,15 @@ import ReactDOM from 'react-dom';
 
 // export default () => <Home><Index/></Home>
 
-function Index() {
-  const [number, setNumber] = useState(0);
-  return (
-    <div>
-      {/* { number }
-        <button onClick={()=>setNumber(22)} >点击</button> */}
-      hello.world
-    </div>
-  );
-}
+// function Index() {
+//   const [number, setNumber] = useState(0);
+//   return (
+//     <div>
+//       {/* { number }
+//         <button onClick={()=>setNumber(22)} >点击</button> */}
+//       hello.world
+//     </div>
+//   );
+// }
 
-export default Index;
+// export default Index;

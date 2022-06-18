@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import Code from '../../../demo/code';
-console.log('Code:', Code)
+// console.log('Code:', Code);
 
 const toLearn = ['react', 'vue', 'webpack', 'nodejs'];
 const TextComponent = () => <div> hello , i am function component 888 </div>;
@@ -14,7 +14,7 @@ function TestComponent() {
     </div>
   );
 }
-console.log('TestComponent:', TestComponent);
+// console.log('TestComponent:', TestComponent);
 
 /* TODO: ② */
 class Index extends React.Component {
