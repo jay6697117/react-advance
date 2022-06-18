@@ -103,36 +103,46 @@ import './index.scss';
 // }
 
 /* 函数 */
-function textFun() {
-  return 'hello, world';
-}
-/* 函数组件 */
-function FunComponent() {
-  // const [state, setState] = useState(initialState);
-  console.log('hooks:', useState('hello,world'));
-  const [message, setMessage] = useState('hello,world');
-  console.log('message:', message);
-  console.log('setMessage:', setMessage);
-  return <div onClick={() => setMessage('hello, my name is alien')}>{message}</div>;
-}
-export default FunComponent;
-
-// class Index extends React.Component{
-//     constructor(...arg){
-//        super(...arg)                        /* 执行 react 底层 Component 函数 */
-//     }
-//     static = { }                            /* state */
-//     static number = 1                       /* 内置静态属性 */
-//     handerClick= () => console.log(111)     /* 箭头函数方法直接绑定在this实例上 */
-//     componentDidMount(){                    /*  */
-//         console.log(Index.number,Index.number1)
-//     }
-//     render(){                               /* 渲染函数 */
-//         return <div style={{ marginTop:'50px' }} onClick={ this.handerClick }  >hello,React!</div>
-//     }
+// function textFun() {
+//   return 'hello, world';
 // }
-// Index.number1 = 2 /* 外置静态属性 */
-// Index.prototype.handerClick = ()=> console.log(222) /* 绑定在 Index 原型链的 方法*/
+/* 函数组件 */
+// function FunComponent() {
+//   // const [state, setState] = useState(initialState);
+//   console.log('hooks:', useState('hello,world'));
+//   const [message, setMessage] = useState('hello,world');
+//   console.log('message:', message);
+//   console.log('setMessage:', setMessage);
+//   return <div onClick={() => setMessage('hello, my name is alien')}>{message}</div>;
+// }
+// export default FunComponent;
+
+class Index extends React.Component {
+  constructor(...arg) {
+    super(...arg); /* 执行 react 底层 Component 函数 */
+    console.log('arg', arg);
+    console.log('constructor this.props 0:', this.props);
+  }
+  static number = 1; /* 内置静态属性 */
+  static = {}; /* state */
+  handerClick = () => console.log(111); /* 箭头函数方法直接绑定在this实例上 */
+  componentDidMount() {
+    console.log(Index.number, Index.number1);
+  }
+  render() {
+    console.log('render this.props 1:', this.props);
+    /* 渲染函数 */
+    return (
+      <div onClick={this.handerClick} style={{ marginTop: '20px' }}>
+        hello,React
+      </div>
+    );
+  }
+}
+Index.number1 = 2; /* 外置静态属性 */
+Index.prototype.handerClick = () => console.log(222); /* 绑定在 Index 原型链的 方法*/
+
+export default Index;
 
 /* TODO: props + callback */
 // /* 子组件 */
