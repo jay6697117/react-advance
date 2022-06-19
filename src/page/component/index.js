@@ -107,57 +107,72 @@ import './index.scss';
 //   return 'hello, world';
 // }
 /* 函数组件 */
-// function FunComponent() {
-//   // const [state, setState] = useState(initialState);
-//   console.log('hooks:', useState('hello,world'));
-//   const [message, setMessage] = useState('hello,world');
-//   console.log('message:', message);
-//   console.log('setMessage:', setMessage);
-//   return <div onClick={() => setMessage('hello, my name is alien')}>{message}</div>;
-// }
-// export default FunComponent;
-
-class Index extends React.Component {
-  //静态属性
-  static number = 1; /* 内置静态属性 */
-  //类字段:直接绑定在this实例
-  state = {}; /* state */
-  // handerClick = () => console.log(1); /* 箭头函数方法直接绑定在this实例上 */
-
-  //constructor:初始化
-  constructor(...arg) {
-    super(...arg); /* 执行 react 底层 Component 函数 */
-    console.log('arg', arg);
-    console.log('constructor this.props 0:', this.props);
-    this.state = {};
-    // this.handerClick = () => console.log(11);
-  }
-  //绑定在 Index 原型链上的方法
-  handerClick() {
-    console.log(2);
-  }
-  componentDidMount() {
-    console.log(Index.number, Index.number1);
-    console.log('this.handerClick:', this.handerClick);
-  }
-  render() {
-    console.log('render this.props 1:', this.props);
-    /* 渲染函数 */
-    return (
-      <div onClick={this.handerClick} style={{ marginTop: '20px' }}>
-        hello,React
-      </div>
-    );
-  }
+function FunComponent() {
+  // 语法: const [state, setState] = useState(initialState);
+  console.log('FunComponent.number:', FunComponent.number);
+  const [message, setMessage] = useState('hello,world'); /* hooks */
+  console.log('setMessage:', setMessage);
+  return (
+    <div
+      onClick={() => {
+        console.log('onClick run');
+        const randomNum = Math.floor(Math.random() * 10 + 1);
+        console.log('randomNum', randomNum);
+        if (randomNum > 5) {
+          setMessage('hello, my name is alien');
+        } else {
+          setMessage('hello,world');
+        }
+      }}>
+      {message}
+    </div>
+  );
 }
-Index.number1 = 2; /* 外置静态属性 */
-Index.prototype.handerClick = () => console.log(22); /* 绑定在 Index 原型链的 方法*/
-console.log('Index.prototype:', Index.prototype);
-console.log('Object.getOwnPropertyNames(Index.prototype):', Object.getOwnPropertyNames(Index.prototype));
-Object.getOwnPropertyNames(Index.prototype).forEach((key, index) => {
-  console.log(`${index}:`, Index.prototype[key]);
-});
-export default Index;
+FunComponent.number = 100;
+export default FunComponent;
+
+/* 类组件各个部分的功能 */
+// class Index extends React.Component {
+//   //静态属性
+//   static number = 1; /* 内置静态属性 */
+//   //类字段:直接绑定在this实例
+//   state = {}; /* state */
+//   // handerClick = () => console.log(1); /* 箭头函数方法直接绑定在this实例上 */
+
+//   //constructor:初始化
+//   constructor(...arg) {
+//     super(...arg); /* 执行 react 底层 Component 函数 */
+//     console.log('arg', arg);
+//     console.log('constructor this.props 0:', this.props);
+//     this.state = {};
+//     // this.handerClick = () => console.log(11);
+//   }
+//   //绑定在 Index 原型链上的方法
+//   handerClick() {
+//     console.log(2);
+//   }
+//   componentDidMount() {
+//     console.log(Index.number, Index.number1);
+//     console.log('this.handerClick:', this.handerClick);
+//   }
+//   render() {
+//     console.log('render this.props 1:', this.props);
+//     /* 渲染函数 */
+//     return (
+//       <div onClick={this.handerClick} style={{ marginTop: '20px' }}>
+//         hello,React
+//       </div>
+//     );
+//   }
+// }
+// Index.number1 = 2; /* 外置静态属性 */
+// Index.prototype.handerClick = () => console.log(22); /* 绑定在 Index 原型链的 方法*/
+// console.log('Index.prototype:', Index.prototype);
+// console.log('Object.getOwnPropertyNames(Index.prototype):', Object.getOwnPropertyNames(Index.prototype));
+// Object.getOwnPropertyNames(Index.prototype).forEach((key, index) => {
+//   console.log(`${index}:`, Index.prototype[key]);
+// });
+// export default Index;
 
 /* TODO: props + callback */
 // /* 子组件 */
