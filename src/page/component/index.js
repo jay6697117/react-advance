@@ -118,16 +118,27 @@ import './index.scss';
 // export default FunComponent;
 
 class Index extends React.Component {
+  //静态属性
+  static number = 1; /* 内置静态属性 */
+  //类字段:直接绑定在this实例
+  state = {}; /* state */
+  // handerClick = () => console.log(1); /* 箭头函数方法直接绑定在this实例上 */
+
+  //constructor:初始化
   constructor(...arg) {
     super(...arg); /* 执行 react 底层 Component 函数 */
     console.log('arg', arg);
     console.log('constructor this.props 0:', this.props);
+    this.state = {};
+    // this.handerClick = () => console.log(11);
   }
-  static number = 1; /* 内置静态属性 */
-  static = {}; /* state */
-  handerClick = () => console.log(111); /* 箭头函数方法直接绑定在this实例上 */
+  //绑定在 Index 原型链上的方法
+  handerClick() {
+    console.log(2);
+  }
   componentDidMount() {
     console.log(Index.number, Index.number1);
+    console.log('this.handerClick:', this.handerClick);
   }
   render() {
     console.log('render this.props 1:', this.props);
@@ -140,8 +151,12 @@ class Index extends React.Component {
   }
 }
 Index.number1 = 2; /* 外置静态属性 */
-Index.prototype.handerClick = () => console.log(222); /* 绑定在 Index 原型链的 方法*/
-
+Index.prototype.handerClick = () => console.log(22); /* 绑定在 Index 原型链的 方法*/
+console.log('Index.prototype:', Index.prototype);
+console.log('Object.getOwnPropertyNames(Index.prototype):', Object.getOwnPropertyNames(Index.prototype));
+Object.getOwnPropertyNames(Index.prototype).forEach((key, index) => {
+  console.log(`${index}:`, Index.prototype[key]);
+});
 export default Index;
 
 /* TODO: props + callback */
