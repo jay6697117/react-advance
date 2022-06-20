@@ -7,7 +7,7 @@ export interface EventsType {
   [eventName: string]: Listener[];
 }
 
-export default class OnFire {
+class OnFire {
   static ver = '__VERSION__';
 
   es: EventsType = {};
@@ -69,3 +69,4 @@ export default class OnFire {
 }
 
 export const BusService = new OnFire();
+export default OnFire;

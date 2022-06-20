@@ -107,29 +107,25 @@ import './index.scss';
 //   return 'hello, world';
 // }
 /* 函数组件 */
-function FunComponent() {
-  // 语法: const [state, setState] = useState(initialState);
-  console.log('FunComponent.number:', FunComponent.number);
-  const [message, setMessage] = useState('hello,world'); /* hooks */
-  console.log('setMessage:', setMessage);
-  return (
-    <div
-      onClick={() => {
-        console.log('onClick run');
-        const randomNum = Math.floor(Math.random() * 10 + 1);
-        console.log('randomNum', randomNum);
-        if (randomNum > 5) {
-          setMessage('hello, my name is alien');
-        } else {
-          setMessage('hello,world');
-        }
-      }}>
-      {message}
-    </div>
-  );
-}
-FunComponent.number = 100;
-export default FunComponent;
+// function FunComponent() {
+//   // 语法: const [state, setState] = useState(initialState);
+//   console.log('FunComponent.number:', FunComponent.number);
+//   const [message, setMessage] = useState('hello,world'); /* hooks */
+//   console.log('setMessage:', setMessage);
+//   return (
+//     <div
+//       onClick={() => {
+//         console.log('onClick run');
+//         const randomNum = Math.floor(Math.random() * 10 + 1);
+//         console.log('randomNum', randomNum);
+//         setMessage(`hello, my name is ${randomNum}`);
+//       }}>
+//       {message}
+//     </div>
+//   );
+// }
+// FunComponent.number = 100;
+// export default FunComponent;
 
 /* 类组件各个部分的功能 */
 // class Index extends React.Component {
@@ -175,59 +171,78 @@ export default FunComponent;
 // export default Index;
 
 /* TODO: props + callback */
-// /* 子组件 */
-// function Son(props){
-//     const {  fatherSay , sayFather  } = props
-//     return <div className='son' >
-//          我是子组件
-//         <div> 父组件对我说：{ fatherSay } </div>
-//         <input placeholder="我对父组件说" onChange={ (e)=>sayFather(e.target.value) }   />
+/* 子组件 */
+// function Son(props) {
+//   const { fatherSay, sayFather } = props;
+//   console.log('fatherSay 1:', fatherSay);
+//   console.log('sayFather 1:', sayFather);
+//   return (
+//     <div className="son">
+//       我是子组件
+//       <div> 父组件对我说: {fatherSay} </div>
+//       <input onChange={e => sayFather(e.target.value)} placeholder="我对父组件说" />
 //     </div>
+//   );
 // }
-// /* 父组件 */
-// function Father(){
-//     const [ childSay , setChildSay ] = useState('')
-//     const [ fatherSay , setFatherSay ] = useState('')
-//     return <div className="box father" >
-//         我是父组件
-//        <div> 子组件对我说：{ childSay } </div>
-//        <input placeholder="我对子组件说" onChange={ (e)=>setFatherSay(e.target.value) }   />
-//        <Son fatherSay={fatherSay}  sayFather={ setChildSay }  />
-//     </div>
-// }
+/* 父组件 */
+// function Father() {
+//   const [childSay, setChildSay] = useState('father');
+//   const [fatherSay, setFatherSay] = useState('son');
 
-// /* TODO:event Bus  */
-// import { BusService } from './eventBus'
-// function Son(){
-//     const [ fatherSay , setFatherSay ] = useState('')
-//     React.useEffect(()=>{
-//         BusService.on('fatherSay',(value)=>{
-//             setFatherSay(value)
-//        })
-//        return function(){  BusService.off('fatherSay') /* 解绑事件 */ }
-//     },[])
-//     return <div className='son' >
-//          我是子组件
-//         <div> 父组件对我说：{ fatherSay } </div>
-//         <input placeholder="我对父组件说" onChange={ (e)=> BusService.emit('childSay',e.target.value)  }   />
-//     </div>
-// }
-// /* 父组件 */
-// function Father(){
-//     const [ childSay , setChildSay ] = useState('')
-//     React.useEffect(()=>{ /* 事件绑定 */
-//         BusService.on('childSay',(value)=>{
-//              setChildSay(value)
-//         })
+//   // console.log('setChildSay:', setChildSay);
+//   // console.log('setFatherSay:', setFatherSay);
 
-//     },[])
-//     return <div className="box father" >
-//         我是父组件
-//        <div> 子组件对我说：{ childSay } </div>
-//        <input placeholder="我对子组件说" onChange={ (e)=> BusService.emit('fatherSay',e.target.value) }   />
-//        <Son  />
+//   return (
+//     <div className="box father">
+//       我是父组件
+//       <div> 子组件对我说: {childSay} </div>
+//       <input onChange={e => setFatherSay(e.target.value)} placeholder="我对子组件说" />
+//       <Son fatherSay={fatherSay} sayFather={setChildSay} />
 //     </div>
+//   );
 // }
+// export default Father;
+
+/* TODO:event Bus  */
+import { BusService } from './eventBus';
+function Son() {
+  const [fatherSay, setFatherSay] = useState('');
+  React.useEffect(() => {
+    BusService.on('fatherSay', value => {
+      setFatherSay(value);
+    });
+    return function() {
+      BusService.off('fatherSay'); /* 解绑事件 */
+    };
+  }, []);
+  return (
+    <div className="son">
+      我是子组件
+      <div> 父组件对我说：{fatherSay} </div>
+      <input onChange={e => BusService.emit('childSay', e.target.value)} placeholder="我对父组件说" />
+    </div>
+  );
+}
+/* 父组件 */
+function Father() {
+  const [childSay, setChildSay] = useState('');
+  React.useEffect(() => {
+    /* 事件绑定 */
+    BusService.on('childSay', value => {
+      setChildSay(value);
+    });
+  }, []);
+  return (
+    <div className="box father">
+      我是父组件
+      <div> 子组件对我说：{childSay} </div>
+      <input onChange={e => BusService.emit('fatherSay', e.target.value)} placeholder="我对子组件说" />
+      <Son />
+    </div>
+  );
+}
+
+export default Father;
 
 // /* TODO:  继承 */
 // /* 人类 */
